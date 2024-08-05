@@ -12,7 +12,7 @@ module.exports = {
         {
             resolve: `gatsby-source-wordpress`,
             options: {
-                url: `https://voiceoftones.com/graphql`,
+                url: `https://cms.voiceoftones.com/graphql`,
             },
         },
     ],
