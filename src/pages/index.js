@@ -2,31 +2,39 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 // Define the component
-export default function Home({ data }) {
-    // Destructure the fetched data
-    const pages = data.allWpPage.nodes
+export default function IndexPage({ data }) {
+    const menuItems = data.allWpMenu.nodes[0].menuItems.nodes
 
     return (
         <div>
-            <h1>Pages</h1>
-            <ul>
-                {pages.map((page) => (
-                    <li key={page.slug}>
-                        <a href={`/${page.slug}`}>{page.title}</a>
-                    </li>
-                ))}
-            </ul>
+            <nav>
+                <ul>
+                    {menuItems.map((menuItem) => (
+                        <li key={menuItem.id}>
+                            <a href={menuItem.url}>{menuItem.label}</a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+            <h1>Welcome to the homepage!</h1>
+            {/* Other page content */}
         </div>
     )
 }
 
 // Define the GraphQL query
 export const query = graphql`
-    query NavigationBar {
-        allWpPage {
+    query {
+        allWpMenu {
             nodes {
-                title
-                slug
+                name
+                menuItems {
+                    nodes {
+                        id
+                        label
+                        url
+                    }
+                }
             }
         }
     }
