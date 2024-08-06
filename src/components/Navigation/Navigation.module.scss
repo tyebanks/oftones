@@ -1,0 +1,16 @@
+/* Navigation.module.scss */
+@import '../../styles/variables.scss';
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.navLink {
+    text-decoration: none; /* Removes underline from links */
+    color: var(
+        --color-text-dark
+    ); /* Applies a primary color from CSS variables */
+    font-size: var(--font-sm);
+    padding-inline: var(--space-3);
+}

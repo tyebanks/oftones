@@ -1,0 +1,13 @@
+/* Logo.module.scss */
+@import '../../styles/variables.scss';
+
+// Define styles for the Logo component
+
+.container {
+    // Style for the Logo container
+    padding: var(--space-1);
+}
+
+.logo {
+    width: 70px;
+}

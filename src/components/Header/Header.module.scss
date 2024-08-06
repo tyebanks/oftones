@@ -1,0 +1,10 @@
+/* Header.module.scss */
+@import '../../styles/variables.scss';
+
+.header {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-bottom: 1px rgb(168, 168, 168) solid; /* This adds a black outline to the nav container */
+  // padding-inline: var(--space-3);
+}

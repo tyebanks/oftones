@@ -1,0 +1,22 @@
+/* Footer.module.scss */
+@import '../../styles/variables.scss';
+
+.footer {
+    padding: var(--space-5);
+    color: var(--color-text-light);
+    background-color: var(--color-code-bg);
+    font-size: var(--font-sm);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    outline: 2px double rgb(153, 153, 153);
+    div {
+        font-family: 'Barlow', var(--font-sans-serif);
+
+        a {
+            color: var(--color-marker-1);
+        }
+    }
+}

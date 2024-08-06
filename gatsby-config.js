@@ -8,6 +8,12 @@
  
  */
 module.exports = {
+    siteMetadata: {
+        title: `Voice of Tones`,
+        description: `A description of your site.`,
+        author: `Toni J`,
+        siteUrl: `https://voiceoftones.com/`,
+    },
     plugins: [
         {
             resolve: `gatsby-source-wordpress`,
@@ -15,5 +21,9 @@ module.exports = {
                 url: `https://cms.voiceoftones.com/graphql`,
             },
         },
+        `gatsby-plugin-sass`,
+        `gatsby-plugin-image`,
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
     ],
 }

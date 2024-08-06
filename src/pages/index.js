@@ -1,38 +1,74 @@
+import '../styles/global.scss'
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Card from '../components/Card'
 
-// Define the component
-export default function IndexPage({ data }) {
-    const menuItems = data.allWpMenu.nodes[0].menuItems.nodes
+const IndexPage = ({ data }) => {
+    const posts = data.allWpPost.nodes
+
+    const heroImage = data.wpPage.heroBanner.heroImage1.node.sourceUrl
+    // const heroImage = data.wpPage.heroBanner
 
     return (
-        <div>
-            <nav>
-                <ul>
-                    {menuItems.map((menuItem) => (
-                        <li key={menuItem.id}>
-                            <a href={menuItem.url}>{menuItem.label}</a>
-                        </li>
+        <Layout showHero={true} heroImage={heroImage}>
+            <section className="index__wrapper">
+                <h2 className="home__h2">Latest Blog Posts</h2>
+                <div className="card_wrapper">
+                    {posts.map((post) => (
+                        <Card
+                            key={post.id}
+                            title={post.title}
+                            readTime={post.postUtility.read_time}
+                            categories={post.categories.nodes}
+                            slug={post.slug}
+                            date={post.date}
+                            excerpt={post.excerpt}
+                            featuredImage={post.featuredImage} // Pass the featured image data
+                        />
                     ))}
-                </ul>
-            </nav>
-            <h1>Welcome to the homepage!</h1>
-            {/* Other page content */}
-        </div>
+                </div>
+            </section>
+        </Layout>
     )
 }
+export default IndexPage
 
-// Define the GraphQL query
-export const query = graphql`
+export const indexPageQuery = graphql`
     query {
-        allWpMenu {
+        wpPage(id: { eq: "cG9zdDo4OA==" }) {
+            id
+            title
+            slug
+
+            heroBanner {
+                heroImage1 {
+                    node {
+                        sourceUrl
+                        altText
+                    }
+                }
+            }
+        }
+        allWpPost(sort: { date: DESC }, limit: 6) {
             nodes {
-                name
-                menuItems {
+                id
+                title
+                slug
+                date(formatString: "MMMM DD, YYYY")
+                excerpt
+                categories {
                     nodes {
-                        id
-                        label
-                        url
+                        name
+                    }
+                }
+                postUtility {
+                    readTime
+                }
+                featuredImage {
+                    node {
+                        sourceUrl
+                        altText
                     }
                 }
             }

@@ -1,0 +1,152 @@
+// global.scss
+
+@import './variables.scss';
+
+/* Style definitions */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0; /* Remove default margin */
+    font-family: var(--font-sans);
+    box-sizing: border-box;
+}
+
+a {
+    background-color: transparent;
+    color: var(--color-layout-primary); /* Use layout-specific color */
+    text-decoration: none;
+}
+h1 {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: var(--font-lg);
+}
+h2 {
+    font-family: var(--font-sans-serif);
+    font-weight: 500;
+    font-size: var(--font-md);
+}
+
+main {
+    flex-grow: 1;
+}
+
+.index__wrapper {
+    .card_wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        // justify-content: space-evenly;
+        align-items: center;
+        gap: 3em;
+        overflow: hidden;
+        padding-inline: 2em;
+        padding-block: 1em;
+        margin-bottom: 4em;
+    }
+}
+.about__wrapper,
+.blog__wrapper,
+.contact__wrapper {
+    min-height: 100vh;
+    padding: var(--size-gutter);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.about__wrapper {
+    background-image: url('../images/about_bg.jpg');
+}
+.blog__wrapper {
+    background-image: url('../images/blog_bg.jpg');
+}
+.contact__wrapper {
+    background-image: url('../images/contact_bg.jpg');
+}
+
+.home__h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
+    display: flex;
+    justify-content: center;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.intro {
+    max-width: none;
+    line-height: var(--line-height-loose);
+}
+
+ul.diamond-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 20px;
+}
+
+ul li::before {
+    content: '\25C8'; /* Unicode for diamond bullet */
+    color: black; /* Set color if needed */
+    display: inline-block;
+    width: 1em; /* Ensure proper spacing */
+    margin-left: -1em; /* Align with text */
+    margin-right: 10px; /* Space between bullet and text */
+}
+
+.wp-block-gallery {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+    ); /* Adjust column size and number */
+    gap: 1rem; /* Space between images */
+    margin: 0;
+    padding: 0;
+}
+
+.wp-block-gallery .wp-block-image {
+    margin: 0;
+}
+
+.wp-block-gallery img {
+    width: 400px;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures images cover the grid cell */
+}
+
+.wp-block-gallery .wp-element-caption {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem; /* Adjust as needed */
+    color: #666; /* Adjust caption color */
+}
+
+.signatureWP {
+    font-size: 3em;
+    font-family: var(--font-cursive);
+    margin-bottom: var(--space-7);
+    padding-block: var(--space-3);
+    background: linear-gradient(to right, rgb(53, 84, 57), rgb(121, 176, 83));
+    -webkit-background-clip: text; // Clips the background of the letters to make outline
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

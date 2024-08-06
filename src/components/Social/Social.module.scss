@@ -1,0 +1,39 @@
+/* Social.module.scss */
+@import '../../styles/variables.scss';
+
+// Define styles for the Social component
+
+.socials {
+    background-color: transparent;
+    margin-bottom: var(--space-2);
+    padding: var(--space-3);
+    display: flex;
+    gap: var(--space-5);
+
+    .glow_btns {
+        font-size: var(--icon-sm);
+        background: var(--color-code-dark);
+        color: var(--color-code-light);
+        height: var(--icon-md);
+        width: var(--icon-md);
+        border-radius: 50%;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Added this line to position the ::before pseudo-element correctly */
+        overflow: hidden; /* Ensures that the glow effect does not overflow the circle */
+        transition: all var(--transition-1);
+
+        &:hover {
+            border: 2px solid var(--color-marker-5);
+            box-shadow: 0 0 15px var(--color-marker-4);
+            color: var(--color-marker-5);
+        }
+
+        .icon {
+            outline: 2px double transparent;
+            display: inline-block;
+        }
+    }
+}

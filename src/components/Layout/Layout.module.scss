@@ -1,0 +1,9 @@
+/* Layout.module.scss */
+@import '../../styles/variables.scss';
+
+// Layout-specific styles
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
