@@ -9,6 +9,9 @@
     border-radius: 15px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 30px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 }
 
 .card_title,
