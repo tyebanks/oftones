@@ -9,24 +9,19 @@ import Logo from '../Logo/Logo'
 const Header = () => {
     const data = useStaticQuery(graphql`
         query NavBar {
-            allWpMenu {
+            allWpPage {
                 nodes {
-                    name
-                    menuItems {
-                        nodes {
-                            id
-                            label
-                            url
-                        }
-                    }
+                    id
+                    title
+                    slug
                 }
             }
         }
     `)
 
-    const navLinks = data.allWpMenu.nodes[0].menuItems.nodes.map((item) => ({
-        text: item.label,
-        url: item.url,
+    const navLinks = data.allWpPage.nodes.map((page) => ({
+        text: page.title,
+        url: page.slug === 'home' ? '/' : `/${page.slug}`,
         badge: false, // or any other logic to determine the badge
     }))
 

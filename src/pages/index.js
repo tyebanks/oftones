@@ -3,6 +3,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
+import Seo from '../components/seo'
 
 const IndexPage = ({ data }) => {
     const posts = data.allWpPost.nodes
@@ -32,6 +33,7 @@ const IndexPage = ({ data }) => {
         </Layout>
     )
 }
+export const Head = () => <Seo title="Home" />
 export default IndexPage
 
 export const indexPageQuery = graphql`
