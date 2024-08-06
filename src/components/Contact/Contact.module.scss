@@ -5,10 +5,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .glass_card {
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     flex-grow: 1;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
