@@ -1,6 +1,7 @@
 // src/components/About/About.js
 import * as React from 'react'
 import * as styles from './About.module.scss'
+import parse from 'html-react-parser'
 
 const WelcomeMsg = ({ message }) => (
     <section className={styles.welcome_msg}>
@@ -16,7 +17,7 @@ const AuthorBio = ({ intro, imageSrc, altText, description }) => (
         <div className={styles.bio_text_container}>
             <h2>{intro}</h2>
             {description.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index}>{parse(paragraph)}</p>
             ))}
         </div>
     </section>
@@ -26,7 +27,7 @@ const BlogFocus = ({ intro, imageSrc, altText, description, closing }) => (
     <section className={styles.blog_focus_wrapper}>
         <div className={styles.blog_focus_top}>
             <h2>{intro}</h2>
-            <p className={styles.intro}>{description[0]}</p>
+            <p className={styles.intro}>{parse(description[0])}</p>
         </div>
         <div className={styles.octagon_border}>
             <div className={styles.blog_img_container}>
@@ -35,7 +36,7 @@ const BlogFocus = ({ intro, imageSrc, altText, description, closing }) => (
         </div>
         <div className={styles.blog_focus_bottom}>
             {description.slice(1).map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index}>{parse(paragraph)}</p>
             ))}
             {closing.map((item, index) => (
                 <p key={index} className={styles.signature}>
