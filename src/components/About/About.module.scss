@@ -1,0 +1,266 @@
+/* About.module.scss */
+@import '../../styles/variables.scss';
+
+.wrapper {
+    background: transparent;
+    display: flex;
+    gap: var(--space-6);
+    flex-direction: column;
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: var(--space-3);
+
+        @media (max-width: 768px) {
+            margin-bottom: var(--space-5);
+        }
+    }
+    p,
+    .list {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        font-size: var(--p-text-size);
+        // line-height: var(--line-height-normal);
+    }
+}
+
+.welcome_msg,
+.author_bio_wrapper,
+.blog_focus_wrapper {
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(32, 81, 7, 0.55);
+    text-align: justify;
+    text-justify: inter-word;
+    @media (max-width: 768px) {
+        border: 1px double transparent;
+    }
+}
+
+.welcome_msg {
+    margin-top: var(--space-5);
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        font-family: 'Prata', serif;
+        font-weight: 500;
+        font-size: 1.3em;
+        // font-style: oblique;
+        margin-block: 1em;
+        padding-block: var(--space-4);
+        width: 91ch;
+        animation: typing 6s steps(91), blink 0.5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px groove yellowgreen;
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @media (max-width: 768px) {
+            font-size: var(--font-sx);
+            padding-inline: var(--space-5);
+            padding-block: var(--space-5);
+            height: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        overflow: hidden;
+    }
+}
+.author_bio_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-5) var(--space-6);
+    justify-content: center;
+    padding: var(--space-5);
+
+    .bio_image_container {
+        flex: 1;
+        max-width: 200px;
+        max-height: 200px;
+        border: 5px solid var(--green);
+        border-radius: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-inline: var(--space-5);
+        margin-top: var(--space-5);
+        .bio_image {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .bio_text_container {
+        flex: 2;
+        padding: var(--space-5);
+        margin-inline: 3em;
+
+        @media (max-width: 768px) {
+            margin-inline: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        border: 1px double transparent;
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+.blog_focus_wrapper {
+    margin-inline: auto;
+    padding-inline: var(--space-7);
+    padding-block: var(--space-5);
+    margin-bottom: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+
+    @media (max-width: 768px) {
+        margin-bottom: var(--space-7);
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .blog_focus_top {
+        width: 100%;
+
+        .intro {
+            margin-block: var(--space-5);
+        }
+    }
+
+    .octagon_border {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        background: var(--green);
+        display: flex;
+        align-items: center;
+        padding: 0.75em;
+        margin-block: 2em;
+        clip-path: polygon(
+            30% 0%,
+            70% 0%,
+            100% 30%,
+            100% 70%,
+            70% 100%,
+            30% 100%,
+            0% 70%,
+            0% 30%
+        );
+
+        .blog_img_container {
+            width: 100%;
+            height: 100%;
+            clip-path: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .blog_img {
+            width: 400px;
+            height: 400px;
+
+            clip-path: inherit;
+            object-fit: cover; /* Fit the image within the container */
+            transition: transform 0.5s ease;
+        }
+
+        .blog_img_container:hover .blog_img {
+            transform: scale(
+                1.5
+            ); /* Adjust the scale value to increase or decrease zoom in...*/
+        }
+    }
+
+    .blog_focus_bottom {
+        outline: 1px dotted transparent;
+        width: 100%;
+        .list {
+            display: flex;
+            justify-content: space-evenly;
+            padding-left: 40px;
+            list-style-type: none;
+            line-height: var(--line-height-dense);
+
+            .listItem {
+                padding-block: var(--space-5);
+            }
+        }
+
+        p {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            font-size: var(--p-text-size);
+        }
+        .signature {
+            width: 5ch;
+            font-size: 3em;
+            font-family: var(--font-cursive);
+            margin-bottom: var(--space-7);
+            padding-block: var(--space-3);
+            background: linear-gradient(
+                to right,
+                rgb(53, 84, 57),
+                rgb(121, 176, 83)
+            );
+            -webkit-background-clip: text; // Clips the background of the letters to make outline
+            background-clip: text;
+            -webkit-text-fill-color: transparent; // makes the background of the letters transparent
+            animation: fadeIn 2s ease-in forwards;
+            pointer-events: none;
+            opacity: 0;
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .list {
+                flex-direction: column;
+                margin-block: var(--space-4);
+
+                .listItem {
+                    padding-block: var(--space-2);
+                }
+            }
+
+            .signature {
+                margin-bottom: var(--space-2);
+                padding-block: var(--space-4);
+            }
+        }
+    }
+}

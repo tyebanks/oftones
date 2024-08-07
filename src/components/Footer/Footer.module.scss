@@ -18,5 +18,9 @@
         a {
             color: var(--color-marker-1);
         }
+        @media (max-width: 768px) {
+            text-align: center;
+            line-height: var(--line-height-loose);
+        }
     }
 }

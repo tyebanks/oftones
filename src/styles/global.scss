@@ -68,6 +68,13 @@ main {
     background-size: cover;
     background-position: center center;
     overflow: hidden;
+    @media (max-width: 768px) {
+        width: 100%;
+        background-position: left center;
+    }
+    @media (max-width: 480px) {
+        background-position: left top; /* Adjust as needed */
+    }
 }
 .about__wrapper {
     background-image: url('../images/about_bg.jpg');
