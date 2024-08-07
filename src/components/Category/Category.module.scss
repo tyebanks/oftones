@@ -1,0 +1,128 @@
+/* Category.module.scss */
+@import '../../styles/variables.scss';
+
+.category_wrapper {
+    width: 100%;
+    height: 100%;
+    outline: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    gap: 3.5em;
+    flex-wrap: wrap;
+    flex-grow: 1;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1.5em;
+    }
+}
+
+.category_box {
+    width: 30%; // Adjust to your desired width
+    max-width: 500px;
+    height: 300px;
+    background: #eee;
+    position: relative;
+    overflow: hidden;
+    margin: 0em 1em;
+    z-index: 1;
+    flex-grow: 1;
+
+    &:hover {
+        .blog_category {
+            transform: scale(1);
+            transition: all 600ms ease;
+            filter: blur(6px);
+        }
+        span {
+            transition: all 200ms ease;
+        }
+        .top {
+            width: 100%;
+        }
+        .right {
+            height: 100%;
+            transition-delay: 200ms;
+        }
+        .bottom {
+            width: 100%;
+            transition-delay: 400ms;
+        }
+        .left {
+            height: 100%;
+            transition-delay: 600ms;
+        }
+    }
+    @media (max-width: 768px) {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+}
+
+.blog_category {
+    width: 100%;
+    height: auto; // Maintain aspect ratio
+    object-fit: cover; // Ensure the image covers the container
+    transition: all 400ms ease;
+    z-index: -1;
+
+    // Optional: If you need to ensure the image fits within a certain container size
+    max-height: 100%;
+}
+
+.category_title {
+    transform: translate(-50%, -50%);
+    transition-delay: 800ms;
+    opacity: 1;
+    z-index: 1;
+}
+
+.inner_box {
+    height: 70%;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner_box span {
+    position: absolute;
+    background: white;
+    transition: all 00ms ease;
+}
+.top {
+    height: 2px;
+    width: 0%;
+    top: 0;
+    left: 0;
+}
+.right {
+    height: 0%;
+    width: 2px;
+    top: 0;
+    right: 0;
+}
+.bottom {
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    right: 0;
+}
+.left {
+    height: 0%;
+    width: 2px;
+    bottom: 0;
+    left: 0;
+}
+
+.category_title {
+    background: #fff;
+    padding: 1em;
+    text-align: center;
+    font-family: 'Taviraj', serif;
+    color: #000;
+    width: 70%;
+}
