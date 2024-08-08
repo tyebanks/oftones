@@ -20,12 +20,13 @@ const Card = ({
     return (
         <article className={styles.card}>
             {featuredImage && (
-                <section className={styles.card_image}>
-                    <img
-                        src={featuredImage.node.sourceUrl}
-                        alt={featuredImage.node.altText}
-                    />
-                      <p>{date}</p>
+                <section
+                    className={styles.card_image}
+                    style={{
+                        backgroundImage: `url(${featuredImage.node.sourceUrl})`,
+                    }}
+                >
+                    <p className={styles.date}>{date}</p>
                 </section>
             )}
             <section className={styles.card_title}>
@@ -33,7 +34,6 @@ const Card = ({
             </section>
 
             <section className={styles.post_info}>
-              
                 <p className={styles.card_tag}>{categoryNames}</p>
                 <p className={styles.card_readtime}>{readTime} mins</p>
             </section>

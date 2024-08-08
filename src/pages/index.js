@@ -57,7 +57,7 @@ export const indexPageQuery = graphql`
                 id
                 title
                 slug
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "MMM DD, YYYY")
                 excerpt
                 categories {
                     nodes {
