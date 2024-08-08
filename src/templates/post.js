@@ -20,7 +20,7 @@ const PostTemplate = ({ data }) => {
     return (
         <Layout>
             <Seo title={wpPost.title} />
-            <article className={styles.blog_wrapper}>
+            <article className={styles.blog_post}>
                 <section className={styles.post_content}>
                     <h1 itemProp="headline">{parse(wpPost.title)}</h1>
                     <div dangerouslySetInnerHTML={{ __html: wpPost.content }} />
