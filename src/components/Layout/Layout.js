@@ -4,11 +4,13 @@ import Hero from '../Hero/Hero'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
-const Layout = ({ children, showHero, heroImage }) => {
+const Layout = ({ children, showHero, heroImage, showHeroContent }) => {
     return (
         <>
             <Header />
-            {showHero && <Hero image={heroImage} />}
+            {showHero && heroImage && (
+                <Hero image={heroImage} showContent={showHeroContent} />
+            )}
             <div className={styles.wrapper}>
                 <main>{children}</main>
             </div>

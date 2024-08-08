@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/seo'
 import parse from 'html-react-parser'
+// import '../styles/global.scss'
 import * as styles from './post.module.scss'
 
 const PostTemplate = ({ data }) => {
@@ -17,8 +18,9 @@ const PostTemplate = ({ data }) => {
         )
     }
 
+    const heroImage = wpPost.featuredImage?.node?.sourceUrl || ''
     return (
-        <Layout>
+        <Layout showHero={true} heroImage={heroImage} showHeroContent={false}>
             <Seo title={wpPost.title} />
             <article className={styles.blog_post}>
                 <section className={styles.post_content}>
@@ -35,6 +37,11 @@ export const query = graphql`
         wpPost(id: { eq: $id }) {
             title
             content
+            featuredImage {
+                node {
+                    sourceUrl
+                }
+            }
         }
     }
 `

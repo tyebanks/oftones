@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
     // const heroImage = data.wpPage.heroBanner
 
     return (
-        <Layout showHero={true} heroImage={heroImage}>
+        <Layout showHero={true} heroImage={heroImage} showHeroContent={true}>
             <section className="index__wrapper">
                 <h2 className="home__h2">Latest Blog Posts</h2>
                 <div className="card_wrapper">
