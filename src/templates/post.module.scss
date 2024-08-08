@@ -6,18 +6,86 @@
         display: flex;
         flex-direction: column;
     }
+    img {
+        max-width: 100%;
+        max-height: 600px;
+        height: auto;
+        display: block;
+    }
 }
 .blog_post h1 {
-    font-size: 2.5rem;
     margin-bottom: 1rem;
     font-family: var(--font-sans-serif);
+    font-size: var(--font-md);
+    @media (max-width: 768px) {
+        font-size: var(--font-mdx);
+        line-height: var(--line-height-dense);
+    }
 }
 .post_content {
     font-size: 1.125rem;
+
+    h2 {
+        font-size: var(--font-sm);
+    }
     p {
         margin-block: 1.5em;
         text-align: justify;
         text-justify: inter-word;
         line-height: var(--line-height-loose);
+    }
+
+    ol,
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-position: inside; // Makes sure the list markers are inside the list item box
+    }
+
+    /* Ordered lists */
+    ol {
+        padding-left: 1.5em; // Adjust this value as needed
+    }
+
+    /* Unordered lists */
+    ul {
+        padding-left: 1.5em; // Adjust this value as needed
+    }
+
+    /* List items */
+    li {
+        margin-bottom: 0.5em; // Adjust spacing between items
+    }
+    /* Example CSS */
+    blockquote {
+        font-style: italic;
+        margin: 1em 0;
+        padding: 0.5em 1em;
+        border-left: 4px solid #ddd;
+    }
+
+    cite {
+        display: block;
+        margin-top: 0.5em;
+        font-style: normal;
+        font-weight: bold;
+    }
+    figure {
+        position: relative; /* Needed to position the figcaption over the image */
+        margin: 1.5rem 0;
+        max-width: 100%; /* Ensures figure does not overflow */
+        display: inline-block; /* Make the figure shrink-wrap its contents */
+    }
+    figcaption {
+        position: absolute; /* Position over the image */
+        bottom: 0; /* Align to the bottom of the image */
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        color: #fff; /* White text */
+        padding: 0.5rem;
+        text-align: center;
+        font-style: italic;
+        z-index: 10; /* Ensure it appears on top of the image */
     }
 }

@@ -165,10 +165,8 @@ ul li::before {
 }
 
 .signatureWP {
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: var(--font-cursive);
-    margin-bottom: var(--space-7);
-    padding-block: var(--space-3);
     background: linear-gradient(to right, rgb(53, 84, 57), rgb(121, 176, 83));
     -webkit-background-clip: text; // Clips the background of the letters to make outline
     background-clip: text;
