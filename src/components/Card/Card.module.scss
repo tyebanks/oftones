@@ -49,11 +49,14 @@
     justify-content: space-between;
     color: #4caf50;
     background: transparent;
+    // outline: 1px solid red;
+    padding-block: 0.8em;
 }
 
 .card_tag {
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 1em;
 }
 
 .card_readtime {
@@ -74,21 +77,17 @@
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: var(--font-sm);
-        // font-size: var(--space-3);
-        // line-height: 1.2;
     }
 }
 
 .card_excerpt {
-    // outline: 2px dotted yellowgreen;
-    padding-block: 0.25em;
     line-height: var(--line-height-normal);
     text-align: justify;
     text-justify: inter-word;
-    margin-block: 1em;
+
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -96,5 +95,5 @@
 
 .button {
     padding-block: 0.6em;
-    margin-bottom: 2em;
+    margin-block: 1em;
 }

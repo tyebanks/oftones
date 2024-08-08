@@ -4,6 +4,8 @@ import * as React from 'react'
 import * as styles from './Card.module.scss'
 import Button from '../Button/Button'
 import parse from 'html-react-parser'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
 
 const Card = ({
     title,
@@ -29,13 +31,14 @@ const Card = ({
                     <p className={styles.date}>{date}</p>
                 </section>
             )}
-            <section className={styles.card_title}>
-                <h3>{title}</h3>
-            </section>
-
             <section className={styles.post_info}>
                 <p className={styles.card_tag}>{categoryNames}</p>
-                <p className={styles.card_readtime}>{readTime} mins</p>
+                <p className={styles.card_readtime}>
+                    <FontAwesomeIcon icon={faClock} /> {readTime} mins
+                </p>
+            </section>
+            <section className={styles.card_title}>
+                <h3>{title}</h3>
             </section>
 
             <section className={styles.card_excerpt}>{parse(excerpt)}</section>

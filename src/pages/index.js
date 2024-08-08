@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
                         <Card
                             key={post.id}
                             title={post.title}
-                            readTime={post.postUtility.read_time}
+                            readTime={post.postUtility.readTime}
                             categories={post.categories.nodes}
                             slug={post.slug}
                             date={post.date}
