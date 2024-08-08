@@ -17,6 +17,10 @@
     margin-bottom: 1rem;
     font-family: var(--font-sans-serif);
     font-size: var(--font-md);
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Handle long words gracefully */
+    hyphens: auto; /* Enable hyphenation if needed */
+
     @media (max-width: 768px) {
         font-size: var(--font-mdx);
         line-height: var(--line-height-dense);
