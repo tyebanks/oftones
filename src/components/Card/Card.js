@@ -25,17 +25,16 @@ const Card = ({
                         src={featuredImage.node.sourceUrl}
                         alt={featuredImage.node.altText}
                     />
+                      <p>{date}</p>
                 </section>
             )}
             <section className={styles.card_title}>
-                <h2>{title}</h2>
+                <h3>{title}</h3>
             </section>
-            {/* <section className={styles.util_info}>
-                
-            </section> */}
+
             <section className={styles.post_info}>
-                <p>{date}</p>
-                <p className={styles.card_readtime}>{categoryNames} mins</p>
+              
+                <p className={styles.card_tag}>{categoryNames}</p>
                 <p className={styles.card_readtime}>{readTime} mins</p>
             </section>
 

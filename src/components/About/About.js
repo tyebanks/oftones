@@ -15,7 +15,7 @@ const AuthorBio = ({ intro, imageSrc, altText, description }) => (
             <img className={styles.bio_image} src={imageSrc} alt={altText} />
         </div>
         <div className={styles.bio_text_container}>
-            <h2 className="about__h2">{intro}</h2>
+            <h3 className="about__h3">{intro}</h3>
             {description.map((paragraph, index) => (
                 <p key={index}>{parse(paragraph)}</p>
             ))}
@@ -26,7 +26,7 @@ const AuthorBio = ({ intro, imageSrc, altText, description }) => (
 const BlogFocus = ({ intro, imageSrc, altText, description, closing }) => (
     <section className={styles.blog_focus_wrapper}>
         <div className={styles.blog_focus_top}>
-            <h2 className="about__h2">{intro}</h2>
+            <h3 className="about__h3">{intro}</h3>
             <p className={styles.intro}>{parse(description[0])}</p>
         </div>
         <div className={styles.octagon_border}>
