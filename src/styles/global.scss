@@ -33,9 +33,15 @@ h1 {
     font-size: var(--font-lg);
 }
 h2 {
-    font-family: var(--font-sans-serif);
+    font-family: var(--font-serif);
     font-weight: 500;
     font-size: var(--font-md);
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
+    @media (max-width: 768px) {
+        font-size: var(--font-mdx);
+        // outline: 2px solid rgb(0, 255, 170);
+    }
 }
 
 main {
@@ -62,6 +68,7 @@ main {
 .about__wrapper,
 .blog__wrapper,
 .contact__wrapper {
+    // outline: 3px dotted black;
     min-height: 100vh;
     padding: var(--size-gutter);
     background-repeat: no-repeat;
@@ -87,12 +94,16 @@ main {
 }
 
 .home__h2 {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    margin-top: 1.5em;
-    margin-bottom: 0.6em;
     display: flex;
     justify-content: center;
+    @media (max-width: 768px) {
+        // outline: 2px solid rgb(0, 174, 255);
+    }
+}
+.about__h2 {
+    font-family: var(--font-sans-serif);
+    font-weight: 500;
+    font-size: var(--font-md);
 }
 
 .flex-center {

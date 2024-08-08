@@ -46,7 +46,7 @@ const BlogPage = ({ data }) => {
         <Layout>
             <section className="blog__wrapper">
                 <h1>{pageTitle}</h1>
-                <h2 className='home__h2'>{subheading}</h2>
+                <h2>{subheading}</h2>
                 {images.length === 0 ? (
                     <div>No categories found</div>
                 ) : (

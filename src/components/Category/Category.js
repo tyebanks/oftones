@@ -6,13 +6,14 @@ const Category = ({ images }) => {
         <section className={styles.category_wrapper}>
             {images.map((image, index) => (
                 <article key={index} className={styles.category_box}>
-                    <a href="https://x.com">
+                    <a href={image.src}>
                         {image.src && (
-                            <img
-                                src={image.src}
-                                alt={image.alt}
+                            <div
                                 className={styles.blog_category}
-                            />
+                                style={{
+                                    backgroundImage: `url(${image.src})`,
+                                }}
+                            ></div>
                         )}
                         <div className={styles.inner_box}>
                             <div className={styles.category_title}>
