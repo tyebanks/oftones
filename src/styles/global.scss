@@ -132,7 +132,7 @@ ul {
     padding: 0;
     li {
         flex: 1 1 18%; /* Flex-basis for 3 items per row */
-            max-width: 18%;
+        max-width: 18%;
         box-sizing: border-box;
         text-align: center;
         padding-block: var(--space-2);
@@ -140,7 +140,7 @@ ul {
         background: #075138;
         border-radius: 30px;
         /* Responsive layout for screens 768px and smaller */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             flex: 1 1 30%; /* Flex-basis for 3 items per row */
             max-width: 30%;
         } /* Responsive layout for screens 414px and smaller */
