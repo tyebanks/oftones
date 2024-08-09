@@ -1,12 +1,18 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/Layout'
 import Seo from '../components/seo'
 import Category from '../components/Category'
 import { graphql } from 'gatsby'
 
 const BlogPage = ({ data }) => {
+    const [selectedCategory, setSelectedCategory] = useState(null) // Track the selected category
     const categories = data.allWpCategory.nodes
     const categoriesACF = data.wpPage.blogPage.categories
+
+    // Define the onCategoryClick function
+    const onCategoryClick = (slug) => {
+        setSelectedCategory(slug)
+    }
 
     // Map images to categories based on slug matching alt text
     const categoriesWithImages = categories.map((category) => {
@@ -38,10 +44,15 @@ const BlogPage = ({ data }) => {
             <section className="blog__wrapper">
                 <h1>{pageTitle}</h1>
                 <h2>{subheading}</h2>
-                {categoriesWithImages.length === 0 ? (
-                    <div>No categories found</div>
-                ) : (
-                    <Category categories={categoriesWithImages} />
+                <Category
+                    categories={categoriesWithImages}
+                    onCategoryClick={onCategoryClick}
+                />
+
+                {selectedCategory && (
+                    <div id={selectedCategory}>
+                        <h3>Posts for: {selectedCategory}</h3>
+                    </div>
                 )}
             </section>
         </Layout>

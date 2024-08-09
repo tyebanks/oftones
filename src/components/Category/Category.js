@@ -1,14 +1,18 @@
-import * as React from 'react'
+import React from 'react'
 import * as styles from './Category.module.scss'
 
-const Category = ({ categories }) => {
+const Category = ({ categories, onCategoryClick }) => {
     return (
         <section className={styles.category_wrapper}>
             {categories.map((category, index) => (
                 <article key={index} className={styles.category_box}>
-                    <a href={`/category/${category.slug}`}>
-                        {' '}
-                        {/* Use the category slug for the link */}
+                    <a
+                        href="#!"
+                        onClick={(e) => {
+                            e.preventDefault() // Prevent default anchor behavior
+                            onCategoryClick(category.slug) // Set selected category slug
+                        }}
+                    >
                         {category.image && (
                             <div
                                 className={styles.blog_category}
@@ -19,8 +23,7 @@ const Category = ({ categories }) => {
                         )}
                         <div className={styles.inner_box}>
                             <div className={styles.category_title}>
-                                <p>{category.name}</p>{' '}
-                                {/* Display category name */}
+                                <p>{category.name}</p>
                             </div>
                             <span className={styles.top}></span>
                             <span className={styles.right}></span>
