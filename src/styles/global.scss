@@ -121,32 +121,59 @@ h3 {
     line-height: var(--line-height-loose);
 }
 
-ul {
-    list-style: none; /* Remove default bullets */
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; /* Optional: distribute items evenly */
-    gap: 15px; /* Space between items */
-    margin-bottom: 2em;
-    padding: 0;
-    li {
-        flex: 1 1 18%; /* Flex-basis for 3 items per row */
-        max-width: 18%;
-        box-sizing: border-box;
-        text-align: center;
-        padding-block: var(--space-2);
-        padding-inline: var(--space-5);
-        background: #075138;
-        border-radius: 30px;
-        /* Responsive layout for screens 768px and smaller */
+.about__wrapper {
+    @media (max-width: 768px) {
+        .octagon_img_wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    ul {
+        list-style: none; /* Remove default bullets */
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(100px, 1fr)
+        ); /* Auto-resize columns */
+        gap: 15px; /* Space between items */
+        margin-bottom: 2em;
+        padding: 0; /* Remove default padding */
+
+        /* Smaller screens */
         @media (max-width: 768px) {
-            flex: 1 1 30%; /* Flex-basis for 3 items per row */
-            max-width: 30%;
-        } /* Responsive layout for screens 414px and smaller */
+            ul {
+                grid-template-columns: repeat(
+                    2,
+                    1fr
+                ); /* 2 columns on smaller screens */
+            }
+        }
+
+        /* Extra small screens */
         @media (max-width: 420px) {
-            flex: 1 1 48%; /* Flex-basis for 2 items per row */
-            max-width: 48%;
+            ul {
+                grid-template-columns: repeat(
+                    1,
+                    1fr
+                ); /* 1 column on very small screens */
+            }
+        }
+        li {
+            padding: 1px; /* Example padding for content */
+            text-align: center; /* Center text */
+            overflow: hidden; /* Prevent text overflow */
+            box-sizing: border-box; /* Include padding and borders in width */
+            background: #075138;
+            border-radius: 30px;
+            /* Responsive layout for screens 768px and smaller */
+            @media (max-width: 768px) {
+                padding: 0;
+            } /* Responsive layout for screens 414px and smaller */
+            @media (max-width: 420px) {
+                padding: 0;
+            }
         }
     }
 }

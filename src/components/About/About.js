@@ -27,7 +27,7 @@ const BlogFocus = ({ intro, description, closing }) => (
     <section className={styles.blog_focus_wrapper}>
         <div className={styles.blog_focus_top}>
             <h3 className="about__h3">{intro}</h3>
-            <p className={styles.intro}>{parse(description[0])}</p>
+            <div className={styles.intro}>{parse(description[0])}</div>
         </div>
         {/* <div className={styles.octagon_border}>
             <div className={styles.blog_img_container}>

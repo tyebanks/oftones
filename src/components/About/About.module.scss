@@ -15,12 +15,11 @@
             margin-bottom: var(--space-5);
         }
     }
-    p,
-    .list {
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 300;
-        font-size: var(--p-text-size);
-        // line-height: var(--line-height-normal);
+
+    p {
+        // font-family: 'Open Sans', sans-serif;
+        // font-weight: 300;
+        font-size: 1.125em;
     }
 }
 
@@ -157,61 +156,10 @@
             margin-block: var(--space-5);
         }
     }
-
-    // .octagon_border {
-    //     width: 300px;
-    //     height: 300px;
-    //     overflow: hidden;
-    //     background: var(--green);
-    //     display: flex;
-    //     align-items: center;
-    //     padding: 0.75em;
-    //     margin-block: 2em;
-    //     clip-path: polygon(
-    //         30% 0%,
-    //         70% 0%,
-    //         100% 30%,
-    //         100% 70%,
-    //         70% 100%,
-    //         30% 100%,
-    //         0% 70%,
-    //         0% 30%
-    //     );
-
-    //     .blog_img_container {
-    //         width: 100%;
-    //         height: 100%;
-    //         clip-path: inherit;
-    //         display: flex;
-    //         justify-content: center;
-    //         align-items: center;
-    //     }
-    //     .blog_img {
-    //         width: 400px;
-    //         height: 400px;
-
-    //         clip-path: inherit;
-    //         object-fit: cover; /* Fit the image within the container */
-    //         transition: transform 0.5s ease;
-    //     }
-
-    //     .blog_img_container:hover .blog_img {
-    //         transform: scale(
-    //             1.5
-    //         ); /* Adjust the scale value to increase or decrease zoom in...*/
-    //     }
-    // }
-
     .blog_focus_bottom {
         outline: 1px dotted transparent;
         width: 100%;
-       
 
-        p {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
-            font-size: var(--p-text-size);
-        }
         .signature {
             width: 5ch;
             font-size: 3em;
@@ -238,22 +186,55 @@
                     opacity: 1;
                 }
             }
-        }
 
-        @media (max-width: 768px) {
-            .list {
-                flex-direction: column;
-                margin-block: var(--space-4);
-
-                .listItem {
-                    padding-block: var(--space-2);
-                }
-            }
-
-            .signature {
+            @media (max-width: 768px) {
                 margin-bottom: var(--space-2);
                 padding-block: var(--space-4);
             }
         }
     }
 }
+
+// .octagon_border {
+//     width: 300px;
+//     height: 300px;
+//     overflow: hidden;
+//     background: var(--green);
+//     display: flex;
+//     align-items: center;
+//     padding: 0.75em;
+//     margin-block: 2em;
+//     clip-path: polygon(
+//         30% 0%,
+//         70% 0%,
+//         100% 30%,
+//         100% 70%,
+//         70% 100%,
+//         30% 100%,
+//         0% 70%,
+//         0% 30%
+//     );
+
+//     .blog_img_container {
+//         width: 100%;
+//         height: 100%;
+//         clip-path: inherit;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//     }
+//     .blog_img {
+//         width: 400px;
+//         height: 400px;
+
+//         clip-path: inherit;
+//         object-fit: cover; /* Fit the image within the container */
+//         transition: transform 0.5s ease;
+//     }
+
+//     .blog_img_container:hover .blog_img {
+//         transform: scale(
+//             1.5
+//         ); /* Adjust the scale value to increase or decrease zoom in...*/
+//     }
+// }
