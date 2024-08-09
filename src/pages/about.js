@@ -18,7 +18,7 @@ const AboutPage = ({ data }) => {
         image1,
         subTitle2,
         contentSection2,
-        image2,
+        // image2,
         signature,
     } = page.aboutPage
 
@@ -31,8 +31,8 @@ const AboutPage = ({ data }) => {
 
     const blogFocus = {
         intro: subTitle2,
-        imageSrc: image2.node.sourceUrl,
-        altText: image2.node.altText,
+        // imageSrc: image2.node.sourceUrl,
+        // altText: image2.node.altText,
         description: [contentSection2], // Adjust if description is an array
         closing: [signature], // Add actual closing items if any
     }

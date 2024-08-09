@@ -23,17 +23,17 @@ const AuthorBio = ({ intro, imageSrc, altText, description }) => (
     </section>
 )
 
-const BlogFocus = ({ intro, imageSrc, altText, description, closing }) => (
+const BlogFocus = ({ intro, description, closing }) => (
     <section className={styles.blog_focus_wrapper}>
         <div className={styles.blog_focus_top}>
             <h3 className="about__h3">{intro}</h3>
             <p className={styles.intro}>{parse(description[0])}</p>
         </div>
-        <div className={styles.octagon_border}>
+        {/* <div className={styles.octagon_border}>
             <div className={styles.blog_img_container}>
                 <img className={styles.blog_img} src={imageSrc} alt={altText} />
             </div>
-        </div>
+        </div> */}
         <div className={styles.blog_focus_bottom}>
             {description.slice(1).map((paragraph, index) => (
                 <p key={index}>{parse(paragraph)}</p>
@@ -58,8 +58,6 @@ const About = ({ welcomeMessage, authorBio, blogFocus }) => (
         />
         <BlogFocus
             intro={blogFocus.intro}
-            imageSrc={blogFocus.imageSrc}
-            altText={blogFocus.altText}
             description={blogFocus.description}
             closing={blogFocus.closing}
         />
