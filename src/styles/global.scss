@@ -280,13 +280,25 @@ h3 {
     justify-content: flex-start;
     align-items: center;
     padding-top: 4em;
+
+    h1,
+    h2 {
+        padding-inline: 20px;
+    }
+    h1 {
+        @media (max-width: 420px) {
+            font-size: 2.2em;
+        }
+    }
     h2 {
         font-size: 1.5em;
         margin: 0;
-        padding-block: 20px;
+        padding-bottom: 30px;
     }
     p {
-        margin-block: 1em;
         color: #000;
+        margin-block: 2em;
+        text-align: center;
+        padding-inline: 2em;
     }
 }
