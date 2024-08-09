@@ -5,7 +5,7 @@ import parse from 'html-react-parser'
 
 const WelcomeMsg = ({ message }) => (
     <section className={styles.welcome_msg}>
-        <p>{message}</p>
+        <h2>{message}</h2>
     </section>
 )
 
