@@ -39,6 +39,11 @@ const BlogPage = ({ data }) => {
     // Extract pageTitle and subheading from categoriesACF
     const { pageTitle, subheading } = categoriesACF
 
+    // Find the selected category data
+    const selectedCategoryData = categories.find(
+        (category) => category.slug === selectedCategory
+    )
+
     return (
         <Layout>
             <section className="blog__wrapper">
@@ -49,9 +54,21 @@ const BlogPage = ({ data }) => {
                     onCategoryClick={onCategoryClick}
                 />
 
-                {selectedCategory && (
+                {selectedCategoryData && (
                     <div id={selectedCategory}>
-                        <h3>Posts for: {selectedCategory}</h3>
+                        <h3>Posts for: {selectedCategoryData.name}</h3>
+                        <ul>
+                            {selectedCategoryData.posts.nodes.map((post) => (
+                                <li key={post.id}>
+                                    <h4>{post.title}</h4>
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: post.excerpt,
+                                        }}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 )}
             </section>
@@ -74,6 +91,14 @@ export const query = graphql`
                 slug
                 description
                 parentDatabaseId
+                posts {
+                    nodes {
+                        id
+                        title
+                        slug
+                        excerpt
+                    }
+                }
             }
         }
         # Query for fetching Images to use for Main Categories

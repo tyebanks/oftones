@@ -31,6 +31,9 @@ h1 {
     font-family: var(--font-sans);
     font-weight: 300;
     font-size: var(--font-lg);
+    @media (max-width: 420px) {
+        font-size: var(--font-md);
+    }
 }
 h2 {
     font-family: var(--font-serif);
