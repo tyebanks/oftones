@@ -68,47 +68,45 @@ const BlogPage = ({ data }) => {
                             </ul>
                         ) : (
                             <p>
-                                We're sorry, no posts have been made to{' '}
-                                {selectedCategoryData.name} yet.
+                                Sorry, there are no posts made under this
+                                category at this time.
                             </p>
                         )}
 
-                        {selectedCategoryData.wpChildren?.nodes?.length > 0 && (
-                            <div>
-                                {selectedCategoryData.wpChildren.nodes.map(
-                                    (childCategory) => (
-                                        <div key={childCategory.id}>
-                                            <h4>{childCategory.name}</h4>
-                                            {childCategory.posts.nodes.length >
-                                            0 ? (
-                                                <ul>
-                                                    {childCategory.posts.nodes.map(
-                                                        (post) => (
-                                                            <li key={post.id}>
-                                                                <h5>
-                                                                    {post.title}
-                                                                </h5>
-                                                                <div
-                                                                    dangerouslySetInnerHTML={{
-                                                                        __html: post.excerpt,
-                                                                    }}
-                                                                />
-                                                            </li>
-                                                        )
-                                                    )}
-                                                </ul>
-                                            ) : (
-                                                <p>
-                                                    We're sorry, no posts have
-                                                    been made to{' '}
-                                                    {childCategory.name} yet.
-                                                </p>
-                                            )}
-                                        </div>
-                                    )
-                                )}
-                            </div>
-                        )}
+                        {/* Map through the child categories and their posts */}
+                        {selectedCategoryData.wpChildren?.nodes?.length > 0 &&
+                            selectedCategoryData.wpChildren.nodes.map(
+                                (childCategory) => (
+                                    <div key={childCategory.id}>
+                                        <h4>{childCategory.name}</h4>
+                                        {childCategory.posts.nodes.length >
+                                        0 ? (
+                                            <ul>
+                                                {childCategory.posts.nodes.map(
+                                                    (post) => (
+                                                        <li key={post.id}>
+                                                            <h5>
+                                                                {post.title}
+                                                            </h5>
+                                                            <div
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: post.excerpt,
+                                                                }}
+                                                            />
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        ) : (
+                                            <p>
+                                                Sorry, there are no posts made
+                                                under this subcategory at this
+                                                time.
+                                            </p>
+                                        )}
+                                    </div>
+                                )
+                            )}
                     </div>
                 )}
             </section>
