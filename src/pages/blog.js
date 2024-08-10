@@ -5,20 +5,16 @@ import Category from '../components/Category'
 import { graphql } from 'gatsby'
 
 const BlogPage = ({ data }) => {
-    const [selectedCategory, setSelectedCategory] = useState(null) // Track the selected category
+    const [selectedCategory, setSelectedCategory] = useState(null)
     const categories = data.allWpCategory.nodes
     const categoriesACF = data.wpPage.blogPage.categories
 
-    // Define the onCategoryClick function
     const onCategoryClick = (slug) => {
         setSelectedCategory(slug)
     }
 
-    // Map images to categories based on slug matching alt text
     const categoriesWithImages = categories.map((category) => {
         let categoryImage = null
-
-        // Loop through each ACF image field to find a match
         Object.values(categoriesACF).forEach((categoryACF) => {
             if (
                 categoryACF &&
@@ -32,14 +28,12 @@ const BlogPage = ({ data }) => {
 
         return {
             ...category,
-            image: categoryImage, // Assign image URL if found
+            image: categoryImage,
         }
     })
 
-    // Extract pageTitle and subheading from categoriesACF
     const { pageTitle, subheading } = categoriesACF
 
-    // Find the selected category data
     const selectedCategoryData = categories.find(
         (category) => category.slug === selectedCategory
     )
@@ -71,7 +65,7 @@ const BlogPage = ({ data }) => {
                         </ul>
 
                         {/* Map through the child categories and their posts */}
-                        {selectedCategoryData.childrenWpCategory.nodes.map(
+                        {selectedCategoryData.wpChildren?.nodes?.map(
                             (childCategory) => (
                                 <div key={childCategory.id}>
                                     <h4>{childCategory.name}</h4>
@@ -89,10 +83,10 @@ const BlogPage = ({ data }) => {
                                             )
                                         )}
                                     </ul>
-                                </div> // <-- Close the child category div here
+                                </div>
                             )
                         )}
-                    </div> // <-- This closes the main div for selectedCategoryData
+                    </div>
                 )}
             </section>
         </Layout>
@@ -101,12 +95,10 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
     query BlogPageData {
-        # Query for fetching Main Categories in WordPress
         allWpCategory(
             filter: {
                 parentDatabaseId: { eq: null }
                 description: { ne: null }
-                children: { elemMatch: {} }
             }
         ) {
             nodes {
@@ -140,7 +132,6 @@ export const query = graphql`
                 }
             }
         }
-        # Query for fetching Images to use for Main Categories
         wpPage(slug: { eq: "blog" }) {
             id
             title
