@@ -69,7 +69,30 @@ const BlogPage = ({ data }) => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
+
+                        {/* Map through the child categories and their posts */}
+                        {selectedCategoryData.childrenWpCategory.nodes.map(
+                            (childCategory) => (
+                                <div key={childCategory.id}>
+                                    <h4>{childCategory.name}</h4>
+                                    <ul>
+                                        {childCategory.posts.nodes.map(
+                                            (post) => (
+                                                <li key={post.id}>
+                                                    <h5>{post.title}</h5>
+                                                    <div
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: post.excerpt,
+                                                        }}
+                                                    />
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                </div> // <-- Close the child category div here
+                            )
+                        )}
+                    </div> // <-- This closes the main div for selectedCategoryData
                 )}
             </section>
         </Layout>
@@ -83,6 +106,7 @@ export const query = graphql`
             filter: {
                 parentDatabaseId: { eq: null }
                 description: { ne: null }
+                children: { elemMatch: {} }
             }
         ) {
             nodes {
@@ -97,6 +121,21 @@ export const query = graphql`
                         title
                         slug
                         excerpt
+                    }
+                }
+                wpChildren {
+                    nodes {
+                        id
+                        name
+                        slug
+                        posts {
+                            nodes {
+                                id
+                                title
+                                slug
+                                excerpt
+                            }
+                        }
                     }
                 }
             }
