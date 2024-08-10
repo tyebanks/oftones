@@ -1,8 +1,8 @@
 // src/components/PostList.js
 
 import * as React from 'react'
-// import { Link } from 'gatsby'
 import * as styles from './PostList.module.scss'
+import Button from '../Button/Button'
 
 const PostList = ({ category, onBack }) => {
     if (!category) return null
@@ -24,20 +24,24 @@ const PostList = ({ category, onBack }) => {
                         {posts.nodes.map((post) => (
                             <li key={post.id}>
                                 <h4>{post.title}</h4>
-                                <div className={styles.excerpt}
+                                <div
+                                    className={styles.excerpt}
                                     dangerouslySetInnerHTML={{
                                         __html: post.excerpt,
                                     }}
+                                />
+                                <Button
+                                    text="Read More"
+                                    to={`/posts/${post.slug}`}
                                 />
                             </li>
                         ))}
                     </ul>
                 </>
             ) : (
-                <p>
-                    Sorry, there are no posts made under this category at this
-                    time.
-                </p>
+                <div className={styles.no_posts}>
+                    <p>Sorry, there are no posts for this category yet.</p>
+                </div>
             )}
 
             {/* Subcategory posts */}
@@ -50,19 +54,26 @@ const PostList = ({ category, onBack }) => {
                                 {childCategory.posts.nodes.map((post) => (
                                     <li key={post.id}>
                                         <h4>{post.title}</h4>
-                                        <div className={styles.excerpt}
+                                        <div
+                                            className={styles.excerpt}
                                             dangerouslySetInnerHTML={{
                                                 __html: post.excerpt,
                                             }}
+                                        />
+                                        <Button
+                                            text="Read More"
+                                            to={`/posts/${post.slug}`}
                                         />
                                     </li>
                                 ))}
                             </ul>
                         ) : (
-                            <p>
-                                Sorry, there are no posts made under this
-                                subcategory at this time.
-                            </p>
+                            <div className={styles.no_posts}>
+                                <p>
+                                    Sorry, there are no posts for this
+                                    subcategory yet.
+                                </p>
+                            </div>
                         )}
                     </div>
                 ))}

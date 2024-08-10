@@ -1,6 +1,7 @@
 .postListWrapper {
     padding-block: 2em;
     .excerpt {
+        margin-bottom: .8em;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         line-clamp: 2;
@@ -22,7 +23,8 @@
         padding-inline: 1em;
     }
     h4 {
-        padding-bottom: 1em;
+        padding-bottom: .7em;
+        font-family: 'poppins';
     }
     li {
         padding: 1em;
@@ -32,10 +34,20 @@
         outline: 1px double rgba(133, 133, 133, 1);
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(15px);
-        margin-inline: 5px;
+        // margin-inline: 5px;
     }
+}
+.no_posts {
+    outline: 1px double rgba(133, 133, 133, 1);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    margin-inline: 5px;
 }
 .backButton {
     padding: 0.6em;
     color: #075138;
+}
+.button {
+    padding: 0;
+    margin-block: 2em;
 }
