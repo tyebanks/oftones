@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Layout from '../components/Layout'
 import Seo from '../components/seo'
 import Category from '../components/Category'
+import PostList from '../components/PostList'
 import { graphql } from 'gatsby'
 
 const BlogPage = ({ data }) => {
@@ -42,72 +43,18 @@ const BlogPage = ({ data }) => {
         <Layout>
             <section className="blog__wrapper">
                 <h1>{pageTitle}</h1>
-                <h2>{subheading}</h2>
-                <Category
-                    categories={categoriesWithImages}
-                    onCategoryClick={onCategoryClick}
-                />
 
-                {selectedCategoryData && (
-                    <div id={selectedCategory}>
-                        <h3>Posts for: {selectedCategoryData.name}</h3>
-                        {selectedCategoryData.posts.nodes.length > 0 ? (
-                            <ul>
-                                {selectedCategoryData.posts.nodes.map(
-                                    (post) => (
-                                        <li key={post.id}>
-                                            <h4>{post.title}</h4>
-                                            <div
-                                                dangerouslySetInnerHTML={{
-                                                    __html: post.excerpt,
-                                                }}
-                                            />
-                                        </li>
-                                    )
-                                )}
-                            </ul>
-                        ) : (
-                            <p>
-                                Sorry, there are no posts made under this
-                                category at this time.
-                            </p>
-                        )}
-
-                        {/* Map through the child categories and their posts */}
-                        {selectedCategoryData.wpChildren?.nodes?.length > 0 &&
-                            selectedCategoryData.wpChildren.nodes.map(
-                                (childCategory) => (
-                                    <div key={childCategory.id}>
-                                        <h4>{childCategory.name}</h4>
-                                        {childCategory.posts.nodes.length >
-                                        0 ? (
-                                            <ul>
-                                                {childCategory.posts.nodes.map(
-                                                    (post) => (
-                                                        <li key={post.id}>
-                                                            <h5>
-                                                                {post.title}
-                                                            </h5>
-                                                            <div
-                                                                dangerouslySetInnerHTML={{
-                                                                    __html: post.excerpt,
-                                                                }}
-                                                            />
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        ) : (
-                                            <p>
-                                                Sorry, there are no posts made
-                                                under this subcategory at this
-                                                time.
-                                            </p>
-                                        )}
-                                    </div>
-                                )
-                            )}
-                    </div>
+                {!selectedCategory ? (
+                    <Category
+                        categories={categoriesWithImages}
+                        onCategoryClick={onCategoryClick}
+                        subheading={subheading}
+                    />
+                ) : (
+                    <PostList
+                        category={selectedCategoryData}
+                        onBack={() => setSelectedCategory(null)} // Back button handler
+                    />
                 )}
             </section>
         </Layout>
