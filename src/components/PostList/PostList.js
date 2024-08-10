@@ -40,6 +40,7 @@ const PostList = ({ category, onBack }) => {
                 </>
             ) : (
                 <div className={styles.no_posts}>
+                    <h4>{post.title}</h4>
                     <p>Sorry, there are no posts for this category yet.</p>
                 </div>
             )}
