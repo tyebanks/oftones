@@ -68,8 +68,8 @@ const BlogPage = ({ data }) => {
                             </ul>
                         ) : (
                             <p>
-                                Sorry, there are no posts made under this
-                                category at this time.
+                                We're sorry, no posts have been made to{' '}
+                                {selectedCategoryData.name} yet.
                             </p>
                         )}
 
@@ -99,9 +99,9 @@ const BlogPage = ({ data }) => {
                                                 </ul>
                                             ) : (
                                                 <p>
-                                                    Sorry, there are no posts
-                                                    made under this subcategory
-                                                    at this time.
+                                                    We're sorry, no posts have
+                                                    been made to{' '}
+                                                    {childCategory.name} yet.
                                                 </p>
                                             )}
                                         </div>
